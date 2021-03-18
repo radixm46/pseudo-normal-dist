@@ -1,0 +1,38 @@
+<html>
+    <meta charset="UTF-8" />
+    <body>
+        <script src="main.js"></script>
+        <H1> random? numbers</H1>
+        <br> <br>
+        <b>pattern1:</b> <div id="result_1"></div>
+        <b>pattern2:</b> <div id="result_2"></div>
+        <b>pattern3:</b> <div id="result_3"></div>
+        <b>pattern4:</b> <div id="result_4"></div>
+        <b>pattern5:</b> <div id="result_5"></div>
+        <br> <br>
+        <div id="plots"></div>
+        <script>
+         const generateArray = (thresh=0.0) => {
+             return generateFreqTable(...generateRandomNums(100, 13, thresh));
+         }
+         var e1 = document.getElementById("result_1");
+         var e2 = document.getElementById("result_2");
+         var e3 = document.getElementById("result_3");
+         var e4 = document.getElementById("result_4");
+         var e5 = document.getElementById("result_5");
+         var plots = document.getElementById("plots");
+         // list iteration
+         const elementsList = [e1, e2, e3, e4, e5]
+         const variances = [-0.05, -0.02, 0.0, 0.02, 0.05]
+         let str4plot = ''
+
+         elementsList.forEach((elem, idx) => {
+             let numArr = generateArray(variances[idx]);
+             elem.innerHTML = numArr;
+             console.log(idx);
+             str4plot += plotStuff(idx, numArr);
+         })
+         plots.innerHTML = str4plot;
+        </script>
+    </body>
+</html>
