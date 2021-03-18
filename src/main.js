@@ -29,15 +29,15 @@ const generateFreqTable = (array, numOfGroups) => {
 };
 
 // generate simple ascii bar plot
-const plotStuff = (idx, srcArray, idxchar = "-") => {
+const plotStuff = (idx, srcArray, idxchar = "=") => {
   const pltTitle = "pattern" + (idx + 1);
-  splitBarTop = pltTitle + "+".repeat(20 - pltTitle.length) + "<br>";
-  splitBarBot = "+".repeat(20) + "<br>";
+  splitBarTop = `<p><b>${pltTitle}</b>`+ "+".repeat(20 - pltTitle.length) + "<br>";
+  splitBarBot = "+".repeat(20) + "</p>";
   let returnStr = "";
   for (const arrNum of srcArray) {
     returnStr += idxchar.repeat(arrNum) + `:${arrNum}<br>`;
   }
-  return splitBarTop + returnStr + splitBarBot + "<br>";
+  return splitBarTop + returnStr + splitBarBot;
 };
 
 // test
