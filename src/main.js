@@ -1,6 +1,8 @@
 // generate random numbers
 // call this from main.html
 
+// generate rondom numbers with
+// n = listLength, number range = numberOfGroups, median? offset = offset
 const generateRandomNums = (listLength = 100, numberOfGroups = 13, offset = 0.0) => {
   var distributionList = new Int8Array(listLength);
 
@@ -16,6 +18,7 @@ const generateRandomNums = (listLength = 100, numberOfGroups = 13, offset = 0.0)
 }
 
 
+// generate frequency table from given list obj
 const generateFreqTable = (array, numOfGroups) => {
   // given array must be sorted (ascending)
   let freqResult = new Int8Array(numOfGroups);
@@ -27,6 +30,7 @@ const generateFreqTable = (array, numOfGroups) => {
 }
 
 
+// generate simple ascii bar plot
 const plotStuff = (idx, srcArray, idxchar='-') => {
   let pltTitle = 'pattern'+(idx+1);
   splitBarTop = pltTitle + '+'.repeat(20 - pltTitle.length) + '<br>';
@@ -35,7 +39,7 @@ const plotStuff = (idx, srcArray, idxchar='-') => {
   for (const arrNum of srcArray) {
     returnStr += idxchar.repeat(arrNum) + `:${arrNum}<br>`;
   }
-  return splitBarTop + returnStr + splitBarBot;
+  return splitBarTop + returnStr + splitBarBot + '<br>';
 }
 
 // test
