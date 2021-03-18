@@ -3,14 +3,16 @@
     <body>
         <script src="main.js"></script>
         <H1> random? numbers</H1>
-        <br> <br>
-        <b>pattern1:</b> <div id="result_1"></div>
-        <b>pattern2:</b> <div id="result_2"></div>
-        <b>pattern3:</b> <div id="result_3"></div>
-        <b>pattern4:</b> <div id="result_4"></div>
-        <b>pattern5:</b> <div id="result_5"></div>
-        <br> <br>
-        <div id="plots"></div>
+        <div style="float:left;display:inline-block; width:40%;">
+            <b>1:</b><div id="result_1"></div>
+            <b>2:</b><div id="result_2"></div>
+            <b>3:</b><div id="result_3"></div>
+            <b>4:</b><div id="result_4"></div>
+            <b>5:</b><div id="result_5"></div>
+            <b>6:</b><div id="result_6"></div>
+            <b>7:</b><div id="result_7"></div>
+        </div>
+        <div style="background:skyblue; display:inline-block; width:60%; float:right;" id="plots"></div>
         <script>
          const generateArray = (thresh=0.0) => {
              return generateFreqTable(...generateRandomNums(100, 13, thresh));
@@ -20,10 +22,12 @@
          var e3 = document.getElementById("result_3");
          var e4 = document.getElementById("result_4");
          var e5 = document.getElementById("result_5");
+         var e6 = document.getElementById("result_6");
+         var e7 = document.getElementById("result_7");
          var plots = document.getElementById("plots");
          // list iteration
-         const elementsList = [e1, e2, e3, e4, e5]
-         const variances = [-0.05, -0.02, 0.0, 0.02, 0.05]
+         const elementsList = [e1, e2, e3, e4, e5, e6, e7]
+         const variances = [-0.18, -0.05, -0.02, 0.0, 0.02, 0.05, 0.18]
          let str4plot = ''
 
          elementsList.forEach((elem, idx) => {
