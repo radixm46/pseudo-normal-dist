@@ -1,9 +1,22 @@
 env:
   browser: true
   es2021: true
-extends:
-  - standard
+  node: true
+extends: 'eslint:recommended'
 parserOptions:
   ecmaVersion: 12
   sourceType: module
-rules: {}
+rules:
+  indent:
+    - error
+    - 2
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - double
+    - avoidEscape: true
+  semi:
+    - error
+    - always
