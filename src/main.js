@@ -4,11 +4,11 @@
 // generate rondom numbers with
 // n = listLength, number range = numberOfGroups, median? offset = offset
 const generateRandomNums = (listLength = 100, numberOfGroups = 13, offset = 0.0) => {
-  const distributionList = new Int8Array(listLength);
+  const distributionList = new Int16Array(listLength);
 
   distributionList.forEach((val, index) => {
     val = 0;
-    for (const addelem in new Int8Array(numberOfGroups)) {
+    for (const addelem in new Int16Array(numberOfGroups)) {
       val += Math.round(Math.random() + offset);
     }
     distributionList[index] = val;
@@ -20,7 +20,7 @@ const generateRandomNums = (listLength = 100, numberOfGroups = 13, offset = 0.0)
 // generate frequency table from given list obj
 const generateFreqTable = (array, numOfGroups) => {
   // given array must be sorted (ascending)
-  const freqResult = new Int8Array(numOfGroups);
+  const freqResult = new Int16Array(numOfGroups);
   for (let i = 0; i < numOfGroups; i++) {
     const result = array.filter(num => num === i);
     freqResult[i] = result.length;
