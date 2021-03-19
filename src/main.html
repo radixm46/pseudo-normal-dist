@@ -6,37 +6,36 @@
     <link rel="stylesheet" href="default.css" type="text/css" />
     <body>
         <H1> random? numbers</H1>
-        <div style="width:45%; float:left"><span id="result_1"></span></div>
-        <div style="width:45%; float:right"><span id="result_2"></span></div>
-        <div style="width:45%; float:left"><span id="result_3"></span></div>
-        <div style="width:45%; float:right"><span id="result_4"></span></div>
-        <div style="width:45%; float:left"><span id="result_5"></span></div>
-        <div style="width:45%; float:right"><span id="result_6"></span></div>
-        <div style="width:45%; float:left"><span id="result_7"></span></div>
+        <div id="desc">※再読み込みで再生成します。<br>
+            excelへ貼り付ける場合「データ→区切り位置指定」からカンマ区切りを指定してグラフ作成してください。</div>
+        <div style="float:left" id="result_1"></div>
+        <div style="float:right" id="result_2"></div>
+        <div style="float:left" id="result_3"></div>
+        <div style="float:right" id="result_4"></div>
+        <div style="float:left" id="result_5"></div>
+        <div style="float:right" id="result_6"></div>
+        <div style="float:left" id="result_7"></div>
         <script src="main.js"></script>
         <script>
          const generateArray = (thresh=0.0) => {
              return new RandomNormalGenerator(100, 13, thresh);
          }
-         var e1 = document.getElementById("result_1");
-         var e2 = document.getElementById("result_2");
-         var e3 = document.getElementById("result_3");
-         var e4 = document.getElementById("result_4");
-         var e5 = document.getElementById("result_5");
-         var e6 = document.getElementById("result_6");
-         var e7 = document.getElementById("result_7");
-         var plots = document.getElementById("plots");
          // list iteration
-         const elementsList = [e1, e2, e3, e4, e5, e6, e7]
+         const elementsList = [
+             document.getElementById("result_1"),
+             document.getElementById("result_2"),
+             document.getElementById("result_3"),
+             document.getElementById("result_4"),
+             document.getElementById("result_5"),
+             document.getElementById("result_6"),
+             document.getElementById("result_7"),
+         ]
          const variances = [-0.18, -0.05, -0.02, 0.0, 0.02, 0.05, 0.18]
-         let str4plot = ''
 
          elementsList.forEach((elem, idx) => {
              let numArr = generateArray(variances[idx]);
-             elem.innerHTML = numArr.plotStuff(idx);
-             //str4plot += plotStuff(idx, numArr);
+             elem.insertAdjacentHTML('afterbegin', numArr.plotStuff(idx));
          })
-         //plots.innerHTML = str4plot;
         </script>
     </body>
 </html>
