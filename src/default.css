@@ -1,27 +1,43 @@
-* {
+body {
     background-color: black;
     color: white;
+    display: block;
+    align-content: center;
+}
+header {
+    align-content: center;
+    width:100%;
+    text-align: center;
 }
 h1 {
-    align-content: center;
     border-bottom: solid 15px orange;
     text-align: center;
 }
 h2 {
     font-size: 120%;
+    margin: 0.5em;
     border-bottom: double 5px orange;
-    text-align: center;
 }
 div {
-    width:45%
+    width: 100%;
 }
-div#desc {
+div.desc {
     text-align: center;
-    width:100%;
+    margin-top: 1em;
+}
+div.list {
+    display: flex;
+    flex-wrap: wrap;
+}
+div.result {
     margin: 0.5em;
+    padding: 0.5em;
+    display: block;
+    width: 45%;
 }
 p {
     margin: 2em;
+    margin-left: 6em;
     padding: 0.2em;
     border-left: solid 3px white;
 }
