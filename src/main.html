@@ -3,22 +3,20 @@
         <meta charset="UTF-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
+    <link rel="stylesheet" href="default.css" type="text/css" />
     <body>
-        <script src="main.js"></script>
         <H1> random? numbers</H1>
-        <div style="background:lightgray; float:left; display:inline-block; width:40%;">
-            <p><b>pattern1: </b><span id="result_1"></span></p>
-            <p><b>pattern2: </b><span id="result_2"></span></p>
-            <p><b>pattern3: </b><span id="result_3"></span></p>
-            <p><b>pattern4: </b><span id="result_4"></span></p>
-            <p><b>pattern5: </b><span id="result_5"></span></p>
-            <p><b>pattern6: </b><span id="result_6"></span></p>
-            <p><b>pattern7: </b><span id="result_7"></span></p>
-        </div>
-        <div style="background:skyblue; display:inline-block; width:60%; float:right;" id="plots"></div>
+        <div style="width:45%; float:left"><span id="result_1"></span></div>
+        <div style="width:45%; float:right"><span id="result_2"></span></div>
+        <div style="width:45%; float:left"><span id="result_3"></span></div>
+        <div style="width:45%; float:right"><span id="result_4"></span></div>
+        <div style="width:45%; float:left"><span id="result_5"></span></div>
+        <div style="width:45%; float:right"><span id="result_6"></span></div>
+        <div style="width:45%; float:left"><span id="result_7"></span></div>
+        <script src="main.js"></script>
         <script>
          const generateArray = (thresh=0.0) => {
-             return generateFreqTable(...generateRandomNums(100, 13, thresh));
+             return new RandomNormalGenerator(100, 13, thresh);
          }
          var e1 = document.getElementById("result_1");
          var e2 = document.getElementById("result_2");
@@ -35,11 +33,10 @@
 
          elementsList.forEach((elem, idx) => {
              let numArr = generateArray(variances[idx]);
-             elem.innerHTML = numArr;
-             console.log(idx);
-             str4plot += plotStuff(idx, numArr);
+             elem.innerHTML = numArr.plotStuff(idx);
+             //str4plot += plotStuff(idx, numArr);
          })
-         plots.innerHTML = str4plot;
+         //plots.innerHTML = str4plot;
         </script>
     </body>
 </html>

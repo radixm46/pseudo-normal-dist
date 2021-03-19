@@ -1,0 +1,20 @@
+* {
+    background-color: black;
+    color: white;
+}
+h1 {
+    align-content: center;
+    border-bottom: solid 15px orange;
+    text-align: center;
+}
+h2 {
+    font-size: 120%;
+    border-bottom: double 5px orange;
+    text-align: center;
+}
+
+p {
+    margin: 2em;
+    padding: 0.2em;
+    border-left: solid 5px white;
+}
