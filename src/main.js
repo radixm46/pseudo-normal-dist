@@ -31,8 +31,8 @@ const generateFreqTable = (array, numOfGroups) => {
 // generate simple ascii bar plot
 const plotStuff = (idx, srcArray, idxchar = "=") => {
   const pltTitle = "pattern" + (idx + 1);
-  splitBarTop = `<p><b>${pltTitle}</b>`+ "+".repeat(20 - pltTitle.length) + "<br>";
-  splitBarBot = "+".repeat(20) + "</p>";
+  splitBarTop =  `<p>${"+".repeat(5)}<b>${pltTitle}</b>`+ "+".repeat(20 - pltTitle.length) + "<br>";
+  splitBarBot = "+".repeat(25) + "</p>";
   let returnStr = "";
   for (const arrNum of srcArray) {
     returnStr += idxchar.repeat(arrNum) + `:${arrNum}<br>`;
