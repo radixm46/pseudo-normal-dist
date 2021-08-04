@@ -1,11 +1,11 @@
+'use strict';
 // generate random numbers
 // call this from main.html
 
 class RandomNormalGenerator {
   // generate rondom numbers with
-  // n = listLength, number range = numberOfGroups, median? offset = offset
   constructor(listLength = 100, numberOfGroups = 13, offset = 0.0) {
-    this.distributionList= new Int16Array(listLength);
+    this.distributionList = new Int16Array(listLength);
     this.numberOfGroups = numberOfGroups;
     this.offset = offset;
     this.distributionList.forEach((val, index) => {
@@ -33,14 +33,11 @@ class RandomNormalGenerator {
   // generate simple ascii bar plot
   plotStuff(idx, idxchar = "=") {
     const pltTitle = "pattern" + (idx + 1);
-    //let splitBarTop =  `<p>${"+".repeat(5)}<b>${pltTitle}</b>`+ "+".repeat(20 - pltTitle.length) + "<br>";
-    //let splitBarBot = "+".repeat(25) + "</p>";
-    //let freqArrayStr = `<b>${pltTitle}: </b>${this.freqArray}<br>${"-".repeat(25)}<br>`;
-    let freqArrayStr = `<h2>${pltTitle}: ${this.freqArray}</h2>`;
+    const freqArrayStr = `<h2>${pltTitle}: ${this.freqArray}</h2>`;
     let returnStr = "";
     for (const arrNum of this.freqArray) {
       returnStr += idxchar.repeat(arrNum) + `:${arrNum}<br>`;
-    }
-    return freqArrayStr + `<p>${returnStr}</p>`;
+    } // generate ascii plot
+    return freqArrayStr + `<p class="barplot">${returnStr}</p>`;
   }
 }
